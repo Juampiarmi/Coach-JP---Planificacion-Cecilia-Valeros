@@ -118,10 +118,12 @@
   .card h2 { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.4rem; line-height: 1.2; margin-bottom: 0.5rem; color: var(--text-primary); }
   .card-desc { font-size: 13.5px; color: var(--text-secondary); line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
   .card-footer { padding: 1rem 1.5rem; border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; gap: 10px; pointer-events: none; }
+  
+  /* CORRECCIÓN PROFESIONAL DEL BOTÓN VER RUTINA */
   .card-footer button { 
     pointer-events: auto; 
-    background: rgba(255,255,255,0.04); 
-    border: 1px solid var(--border); 
+    background: rgba(255, 255, 255, 0.05); 
+    border: 1px solid rgba(255, 255, 255, 0.08); 
     color: var(--text-primary); 
     padding: 6px 14px; 
     border-radius: var(--radius-sm); 
@@ -129,13 +131,21 @@
     font-weight: 600; 
     cursor: pointer;
     font-family: 'Inter', sans-serif;
+    outline: none;
+    transition: all 0.2s ease;
+  }
+  .card-footer button:hover {
+    background: rgba(255, 61, 0, 0.15);
+    border-color: var(--fire);
+    color: #fff;
   }
   .card.completed .card-footer button { background: rgba(0, 137, 123, 0.15); border-color: rgba(0, 137, 123, 0.3); color: #4DB6AC; }
+  
   .card-meta-info { display: flex; gap: 12px; }
   .meta-item { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--text-muted); }
   .meta-item svg { width: 14px; height: 14px; flex-shrink: 0; stroke: currentColor; }
   
-  /* MODALES Y OVERLAYS */
+  /* OVERLAYS Y MODALES CORREGIDOS */
   .overlay { display: none; position: fixed; inset: 0; background: rgba(5,5,6,0.85); z-index: 200; align-items: flex-end; justify-content: center; padding: 0; backdrop-filter: blur(8px); }
   .overlay.open { display: flex; }
   @media (min-width: 640px) { .overlay { align-items: center; padding: 2rem; } }
@@ -147,12 +157,12 @@
     width: 100%; 
     max-width: 800px; 
     max-height: 85vh; 
-    overflow-y: auto; 
-    animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards; 
     display: flex;
     flex-direction: column;
+    overflow: hidden; /* Congela los bordes externos */
+    animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards; 
   }
-  @media (min-width: 640px) { .modal { border-radius: var(--radius-lg); max-height: 90vh; } }
+  @media (min-width: 640px) { .modal { border-radius: var(--radius-lg); max-height: 80vh; } }
 
   @keyframes slideUp {
     from { transform: translateY(20px); opacity: 0; }
@@ -165,10 +175,9 @@
     display: flex; 
     justify-content: space-between; 
     align-items: flex-start;
-    position: sticky;
-    top: 0;
     background: #121214;
     z-index: 10;
+    flex-shrink: 0; /* Impide que colapse con pantallas chicas */
   }
   .modal-title { font-family: 'Barlow Condensed', sans-serif; font-size: 1.6rem; font-weight: 800; line-height: 1.1; }
   .modal-close { 
@@ -186,9 +195,13 @@
   }
   .modal-close:hover { background: rgba(255,255,255,0.1); color: var(--text-primary); }
 
-  .modal-body { padding: 1.5rem; overflow-y: auto; }
+  .modal-body { 
+    padding: 1.5rem; 
+    overflow-y: auto; /* El scroll ahora pertenece estrictamente aquí */
+    flex: 1;
+  }
 
-  /* ESTILOS DE BLOQUES DENTRO DEL MODAL (CORREGIDO) */
+  /* BLOQUES INTERNOS DEL MODAL */
   .block { background: rgba(255,255,255,0.01); border: 1px solid var(--border); border-radius: var(--radius-md); margin-bottom: 1.5rem; overflow: hidden; }
   .block-header { padding: 1rem 1.25rem; background: rgba(255,255,255,0.02); border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 10px; }
   .block-title { font-family: 'Barlow Condensed', sans-serif; font-size: 1.2rem; font-weight: 700; letter-spacing: 0.03em; text-transform: uppercase; }
@@ -197,7 +210,7 @@
   .block-title.metcon { color: #4DB6AC; }
   .block-content { padding: 0.5rem 1.25rem; }
 
-  /* DISEÑO DE FILAS DE EJERCICIOS */
+  /* COMPONENTES DE FILA DE EJERCICIOS */
   .exercise-row { display: flex; gap: 16px; padding: 1.25rem 0; border-bottom: 1px solid rgba(255,255,255,0.03); align-items: flex-start; justify-content: space-between; }
   .exercise-row:last-child { border-bottom: none; }
   .exercise-num { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1rem; color: var(--text-muted); min-width: 20px; }
@@ -214,7 +227,7 @@
   .exercise-detail { font-size: 13px; color: var(--text-secondary); text-align: right; max-width: 30%; line-height: 1.4; }
   .exercise-detail b { display: block; color: var(--text-primary); font-weight: 600; font-size: 14px; margin-bottom: 4px; }
   
-  .modal-footer { padding: 1.25rem 1.5rem; border-top: 1px solid var(--border); display: flex; gap: 0.75rem; background: #121214; }
+  .modal-footer { padding: 1.25rem 1.5rem; border-top: 1px solid var(--border); display: flex; gap: 0.75rem; background: #121214; flex-shrink: 0; }
   .btn-complete { flex: 1; background: var(--fire); color: white; border: none; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.1rem; letter-spacing: 0.05em; text-transform: uppercase; padding: 12px 24px; border-radius: var(--radius-md); cursor: pointer; transition: all 0.2s ease; }
   .btn-complete:hover { background: #FF5722; transform: translateY(-1px); box-shadow: 0 4px 12px rgba(255,61,0,0.2); }
   .btn-complete.done { background: #00897B; }
@@ -351,7 +364,7 @@ const workouts = [
     main: [
       { name: "Sentadilla Trasera con Barra - Pies Juntos en Smith", video: "https://www.youtube.com/embed/zTvZtPzgmbI", sub: "Baja rompiendo el paralelo manteniendo el torso erguido. Bloquea la presión intraabdominal con la Maniobra de Valsalva abajo. <b>Interset Activo:</b> Al dejar la barra, realiza inmediatamente 20-30s de Abducción de cadera isométrica de pie con banda sobre la rótula (saltar interset en descarga).", reps: "4 series x 12-10-8-6 rep.", detail: "<b>Tempo: 3.1.1.0</b> RPE: 8<br>Descanso: 180s (90s post interset)" },
       { name: "Glute Bridge con Barra Pesada (Puente de Glúteos de Suelo)", video: "https://www.youtube.com/embed/DQv1IMQDbE4", sub: "Espalda plana en el suelo, barra acolchada en la pelvis. Empuja con talones bloqueando arriba en retroversión. La barbilla pegada al pecho anula la compensación de la espalda baja. <b>Opcional avanzado:</b> Una cuarta serie al fallo técnico en las semanas 1, 2 y 3.", reps: "3-4 series x 10-15 rep.", detail: "<b>Tempo: 2.0.1.2</b> RPE: 8.5<br>Descanso: 90 segundos entre series" },
-      { name: "BLOQUE PRINCIPAL EN SUPERSERIE HÍBRIDA DE GLÚTEO", video: "https://www.youtube.com/embed/P5W2mvm1aGE", sub: "<span class='sub-block-title'>B1</span> <b>Estocadas Caminando con Mancuernas (Torso a 45°):</b> 8 pasos por pierna de forma alternada. Al caer, inclina el torso adelante a 45° manteniendo la rodilla delantera alineada sobre el talón. Estira al máximo las fibras del glúteo bajo carga excéntrica.<br><br><span class='sub-block-title'>B2</span> <b>Pull-Through con Cable de Polea Baja (Bisagra):</b> 12 repeticiones controladas. De espaldas a la polea, sujeta la soga entre tus piernas. Lleva la cadera atrás estirando isquios y glúteos. Empuja horizontalmente la pelvis adelante y sostén 1s la contracción máxima arriba.", reps: "3 Rondas Completas", detail: "<b>Sin pausa entre B1 y B2</b><br>Descanso: 90s al terminar" }
+      { name: "BLOQUE PRINCIPAL EN SUPERSERIE HÍBRIDA DE GLÚTEO", video: "https://www.youtube.com/embed/P5W2mvm1aGE", sub: "<span class='sub-block-title'>B1</span> <b>Estocadas Caminando con Mancuernas (Torso a 45°):</b> 8 pasos por pierna de forma alternada. Al caer, inclina el torso adelante a 45° manteniendo la rodilla delantera alineada sobre el talón. Estira al máximo las fibras del glúteo bajo carga excéntrica.<br><br><span class='sub-block-title'>B2</span> <b>Pull-Through con Cable de Polea Baja (Bisagra):</b> 12 repeticiones controladas. De espaldas a la polea, sujeta la soga entre tus piernas. Lleva la cadera atrás estirando isquios y glúteos. Empuja horizontalmente la pelvis adelante and sostén 1s la contracción máxima arriba.", reps: "3 Rondas Completas", detail: "<b>Sin pausa entre B1 y B2</b><br>Descanso: 90s al terminar" }
     ],
     metcon: [
       { name: "TRISERIE METABÓLICA QUEMADORA (ACCESORIOS)", sub: "<span class='sub-block-title'>Estación 1</span> <b>Goblet Squat con Talones Elevados:</b> 15 reps. Tempo 2.0.1.1 (bloqueo de 1s). Dropset (9-12-15) disminuyendo carga en última serie de semanas 2 y 3. <a href='https://www.youtube.com/shorts/cvaLhYPSHto' target='_blank' style='color:var(--fire-glow); text-decoration:underline;'>Ver Video Goblet</a><br><br><span class='sub-block-title'>Estación 2</span> <b>Isometric Goblet Squat Hold:</b> Sostén de 20-30s abajo en sentadilla profunda a 90° empujando con talones.<br><br><span class='sub-block-title'>Estación 3</span> <b>Max Air Squats (Sentadillas con Salto):</b> Máximas reps por velocidad fluidas buscando vaciar las reservas de glucógeno.", reps: "3-4 Series Consecutivas", detail: "<b>Triserie Completa</b><br>Descanso: 90s al terminar" },
@@ -419,7 +432,7 @@ const workouts = [
     technicalAnalysis: {
       objectives: "Maximizar el estímulo mecánico en elongación muscular para la cadena posterior, estimulando la hipertrofia mediada por estiramiento.",
       tips: "En el Seated Good Morning mantén la columna torácica totalmente cóncava; si se encorva la espalda, el estímulo migra fuera del aductor.",
-      strategies: "La pausa de 1 segundo en el punto inferior del Peso Muerto Rumano disipa por completo el reflejo miotático elástico para obligar a una tracción muscular pura."
+      strategies: "La ya mencionada pausa de 1 segundo en el punto inferior del Peso Muerto Rumano disipa por completo el reflejo miotático elástico para obligar a una tracción muscular pura."
     }
   },
   {
