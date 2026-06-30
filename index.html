@@ -10,9 +10,9 @@
     --fire: #FF3D00; 
     --fire-glow: #FF6D3A; 
     --gold: #FFD600; 
-    --bg: #0A0A0B; 
-    --bg-card: #121214; 
-    --bg-card-hover: #1A1A1E; 
+    --bg: #0E0E0F; 
+    --bg-card: #151518; 
+    --bg-card-hover: #1E1E22; 
     --bg-filter: #0F0F11; 
     --text-primary: #F5F5F7; 
     --text-secondary: #A0A0AA; 
@@ -48,7 +48,7 @@
     position: sticky; 
     top: 0; 
     z-index: 100; 
-    background: rgba(10, 10, 11, 0.8); 
+    background: rgba(14, 14, 15, 0.85); 
     backdrop-filter: blur(20px); 
     -webkit-backdrop-filter: blur(20px);
     border-bottom: 1px solid var(--border); 
@@ -94,7 +94,6 @@
 
   .filters-wrap { background: var(--bg-filter); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 1rem 2rem; position: sticky; top: 65px; z-index: 90; overflow-x: auto; }
   .filters-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; gap: 1rem; min-width: max-content; }
-  .filter-group { display: flex; align-items: center; gap: 0.5rem; }
   .filter-label { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); white-space: nowrap; }
   .filter-sep { width: 1px; height: 20px; background: var(--border); margin: 0 0.5rem; flex-shrink: 0; }
   .chip { background: rgba(255,255,255,0.02); border: 1px solid var(--border); color: var(--text-secondary); font-size: 13px; font-weight: 500; padding: 6px 14px; border-radius: 20px; cursor: pointer; white-space: nowrap; transition: all 0.2s ease; user-select: none; }
@@ -225,6 +224,23 @@
 
   .exercise-detail { font-size: 13px; color: var(--text-secondary); text-align: right; max-width: 30%; line-height: 1.4; }
   .exercise-detail b { display: block; color: var(--text-primary); font-weight: 600; font-size: 14px; margin-bottom: 4px; }
+
+  /* NUEVA SECCIÓN DE INSIGHTS */
+  .insight-box {
+    margin-top: 1rem;
+    padding: 1.25rem;
+    background: rgba(255, 255, 255, 0.01);
+    border-radius: var(--radius-md);
+    border-left: 3px solid var(--border);
+    font-size: 13.5px;
+    color: var(--text-secondary);
+  }
+  .insight-box.warmup { border-left-color: #FFD600; }
+  .insight-box.main { border-left-color: var(--fire-glow); }
+  .insight-box.metcon { border-left-color: #4DB6AC; }
+  .insight-row { display: flex; gap: 8px; margin-bottom: 0.5rem; line-height: 1.5; }
+  .insight-row:last-child { margin-bottom: 0; }
+  .insight-label { font-weight: 700; color: var(--text-primary); white-space: nowrap; }
   
   .modal-footer { padding: 1.25rem 1.5rem; border-top: 1px solid var(--border); display: flex; gap: 0.75rem; background: #121214; flex-shrink: 0; }
   .btn-complete { flex: 1; background: var(--fire); color: white; border: none; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.1rem; letter-spacing: 0.05em; text-transform: uppercase; padding: 12px 24px; border-radius: var(--radius-md); cursor: pointer; transition: all 0.2s ease; }
@@ -356,24 +372,24 @@ const workouts = [
     levelSlug: "Fuerza_Axial_y_Glúteos",
     desc: "Reclutamiento neural de alta densidad y estímulo por tensión mecánica.",
     warmup: [
-      { name: "World's Greatest Stretch (Movilidad Integrada)", video: "https://www.youtube.com/embed/fuWq7fg74dc", sub: "En posición de estocada profunda, apoya la mano interna en el suelo y rota el torso llevando la mano libre hacia el techo. Estira la pierna trasera activamente.", reps: "3 series x 8 rep. (Por lado)" },
-      { name: "Movilidad de Cadera en Cuadrupedia (Fire Hydrants con Banda)", video: "https://www.youtube.com/embed/BLx5wSzafxg", sub: "Con una banda elástica colocada sobre las rodillas, eleva la pierna lateralmente manteniendo el core compacto.", reps: "3 series x 12 rep. (Por lado)" },
-      { name: "Caminata de Glúteos (Frog Walks) + Bridge Hold", video: "https://www.youtube.com/embed/ORO64L7Iz4w", sub: "Avanza en posición de sentadilla profunda parcial. Al terminar, acuéstate y sostén un puente a una sola pierna arriba apretando al máximo.", reps: "3 series x 15 pasos + 10\" Hold" }
+      { name: "World's Greatest Stretch (Movilidad Integrada)", video: "https://www.youtube.com/embed/-CiWQ2IvY34", sub: "En posición de estocada profunda, apoya la mano interna en el suelo y rota el torso llevando la mano libre hacia el techo. Estira la pierna trasera activamente.", reps: "3 series x 8 rep. (Por lado)" },
+      { name: "Movilidad de Cadera en Cuadrupedia (Fire Hydrants con Banda)", video: "https://www.youtube.com/embed/JUBtuuhPdgg", sub: "Con una banda elástica colocada sobre las rodillas, eleva la pierna lateralmente manteniendo el core compacto.", reps: "3 series x 12 rep. (Por lado)" },
+      { name: "Caminata de Glúteos (Frog Walks) + Bridge Hold", video: "https://www.youtube.com/embed/OvQ2YNH7MsI", sub: "Avanza en posición de sentadilla profunda parcial. Al terminar, acuéstate y sostén un puente a una sola pierna arriba apretando al máximo.", reps: "3 series x 15 pasos + 10\" Hold" }
     ],
     main: [
-      { name: "Sentadilla Trasera con Barra - Pies Juntos en Smith", video: "https://www.youtube.com/embed/zTvZtPzgmbI", sub: "Baja rompiendo el paralelo manteniendo el torso erguido. Bloquea la presión intraabdominal con la Maniobra de Valsalva abajo. <b>Interset Activo:</b> Al dejar la barra, realiza inmediatamente 20-30s de Abducción de cadera isométrica de pie con banda sobre la rótula (saltar interset en descarga).", reps: "4 series x 12-10-8-6 rep.", detail: "<b>Tempo: 3.1.1.0</b> RPE: 8<br>Descanso: 180s (90s post interset)" },
+      { name: "Sentadilla Trasera con Barra - Pies Juntos en Smith", video: "https://www.youtube.com/embed/zF94wHx0dHs", sub: "Baja rompiendo el paralelo manteniendo el torso erguido. Bloquea la presión intraabdominal con la Maniobra de Valsalva abajo. <b>Interset Activo:</b> Al dejar la barra, realiza inmediatamente 20-30s de Abducción de cadera isométrica de pie con banda sobre la rótula (saltar interset en descarga).", reps: "4 series x 12-10-8-6 rep.", detail: "<b>Tempo: 3.1.1.0</b> RPE: 8<br>Descanso: 180s (90s post interset)" },
       { name: "Glute Bridge con Barra Pesada (Puente de Glúteos de Suelo)", video: "https://www.youtube.com/embed/DQv1IMQDbE4", sub: "Espalda plana en el suelo, barra acolchada en la pelvis. Empuja con talones bloqueando arriba en retroversión. La barbilla pegada al pecho anula la compensación de la espalda baja. <b>Opcional avanzado:</b> Una cuarta serie al fallo técnico en las semanas 1, 2 y 3.", reps: "3-4 series x 10-15 rep.", detail: "<b>Tempo: 2.0.1.2</b> RPE: 8.5<br>Descanso: 90 segundos entre series" },
-      { name: "BLOQUE PRINCIPAL EN SUPERSERIE HÍBRIDA DE GLÚTEO", video: "https://www.youtube.com/embed/P5W2mvm1aGE", sub: "<span class='sub-block-title'>B1</span> <b>Estocadas Caminando con Mancuernas (Torso a 45°):</b> 8 pasos por pierna de forma alternada. Al caer, inclina el torso adelante a 45° manteniendo la rodilla delantera alineada sobre el talón. Estira al máximo las fibras del glúteo bajo carga excéntrica.<br><br><span class='sub-block-title'>B2</span> <b>Pull-Through con Cable de Polea Baja (Bisagra):</b> 12 repeticiones controladas. De espaldas a la polea, sujeta la soga entre tus piernas. Lleva la cadera atrás estirando isquios y glúteos. Empuja horizontalmente la pelvis adelante y sostén 1s la contracción máxima arriba.", reps: "3 Rondas Completas", detail: "<b>Sin pausa entre B1 y B2</b><br>Descanso: 90s al terminar" }
+      { name: "BLOQUE PRINCIPAL EN SUPERSERIE HÍBRIDA DE GLÚTEO", video: "https://www.youtube.com/embed/aEdRVxSPNoU", sub: "<span class='sub-block-title'>B1</span> <b>Estocadas Caminando con Mancuernas (Torso a 45°):</b> 8 pasos por pierna de forma alternada. Al caer, inclina el torso adelante a 45° manteniendo la rodilla delantera alineada sobre el talón. Estira al máximo las fibras del glúteo bajo carga excéntrica.<br><br><span class='sub-block-title'>B2</span> <b>Pull-Through con Cable de Polea Baja (Bisagra):</b> 12 repeticiones controladas. De espaldas a la polea, sujeta la soga entre tus piernas. Lleva la cadera atrás estirando isquios y glúteos. Empuja horizontalmente la pelvis adelante y sostén 1s la contracción máxima arriba.", video2: "https://www.youtube.com/embed/wGFw_9gr7rY", reps: "3 Rondas Completas", detail: "<b>Sin pausa entre B1 y B2</b><br>Descanso: 90s al terminar" }
     ],
     metcon: [
-      { name: "TRISERIE METABÓLICA QUEMADORA (ACCESORIOS)", sub: "<span class='sub-block-title'>Estación 1</span> <b>Goblet Squat con Talones Elevados:</b> 15 reps. Tempo 2.0.1.1 (bloqueo de 1s). Dropset (9-12-15) disminuyendo carga en última serie de semanas 2 y 3. <a href='https://www.youtube.com/shorts/cvaLhYPSHto' target='_blank' style='color:var(--fire-glow); text-decoration:underline;'>Ver Video Goblet</a><br><br><span class='sub-block-title'>Estación 2</span> <b>Isometric Goblet Squat Hold:</b> Sostén de 20-30s abajo en sentadilla profunda a 90° empujando con talones.<br><br><span class='sub-block-title'>Estación 3</span> <b>Max Air Squats (Sentadillas con Salto):</b> Máximas reps por velocidad fluidas buscando vaciar las reservas de glucógeno.", reps: "3-4 Series Consecutivas", detail: "<b>Triserie Completa</b><br>Descanso: 90s al terminar" },
-      { name: "The Anti-Rotational Flow (EMOM Core)", sub: "EMOM 8 min. Trabaja 45\" y descansa 15\". <b>Minutos Impares (Bloque A):</b> Evil Wheels (Abs con ruedita). De rodillas, extiende la ruedita adelante en posición hollow. <a href='https://www.youtube.com/shorts/MinlHnG7j4k' target='_blank' style='color:var(--fire-glow); text-decoration:underline; font-size:11px;'>Ver Video Ruedita</a><br><br><b>Minutos Pares (Bloque B):</b> Plancha en Fitball. Antebrazos en pelota y realiza círculos (stir the pot). <a href='https://www.youtube.com/shorts/hmdMRDsfyqY' target='_blank' style='color:var(--fire-glow); text-decoration:underline; font-size:11px;'>Ver Video Fitball</a>", reps: "EMOM 8 Minutos", detail: "<b>Estructura: 45'' ON / 15'' OFF</b>" },
-      { name: "Finisher Opcional (MetCon Cardiovascular)", sub: "Formato EMOM 10 min. Alterna un minuto de esfuerzo progresivo segmentado en bicicleta o cinta (0:00-0:40 aeróbico, 0:40-0:50 aceleración, 0:50-1:00 ¡Sprint!) and un minuto de recuperación suave.", reps: "EMOM 10 Minutos", detail: "<b>Cardio Interválico</b>" }
+      { name: "TRISERIE METABÓLICA QUEMADORA (ACCESORIOS)", video: "https://www.youtube.com/embed/M2WFgYumN_Q", sub: "<span class='sub-block-title'>Estación 1</span> <b>Goblet Squat con Talones Elevados:</b> 15 reps. Tempo 2.0.1.1 (bloqueo de 1s). Dropset (9-12-15) disminuyendo carga en última serie de semanas 2 y 3.<br><br><span class='sub-block-title'>Estación 2</span> <b>Isometric Goblet Squat Hold:</b> Sostén de 20-30s abajo en sentadilla profunda a 90° empujando con talones. <a onclick=\"window.playModalVideo('https://www.youtube.com/embed/SszDMOZvFuw')\" style='color:var(--fire-glow); text-decoration:underline; cursor:pointer;'>Ver Video Wall-Sit</a><br><br><span class='sub-block-title'>Estación 3</span> <b>Max Air Squats (Sentadillas con Salto):</b> Máximas reps por velocidad fluidas buscando vaciar las reservas de glucógeno. <a onclick=\"window.playModalVideo('https://www.youtube.com/embed/rMvwVtlqjTE')\" style='color:var(--fire-glow); text-decoration:underline; cursor:pointer;'>Ver Video Air Squats</a>", reps: "3-4 Series Consecutivas", detail: "<b>Triserie Completa</b><br>Descanso: 90s al terminar" },
+      { name: "The Anti-Rotational Flow (EMOM Core)", video: "https://www.youtube.com/embed/5gR0_CcEYvw", sub: "EMOM 8 min. Trabaja 45\" and descansa 15\". <b>Minutos Impares (Bloque A):</b> Dumbbell Plank Drag. Plancha alta, arrastrar mancuerna cruzada. <br><br><b>Minutos Pares (Bloque B):</b> Russian Twist con Disco. Torso inclinado, rotación fluida con columna neutra. <a onclick=\"window.playModalVideo('https://www.youtube.com/embed/uIGn2y3yBGI')\" style='color:var(--fire-glow); text-decoration:underline; cursor:pointer;'>Ver Video Twist</a>", reps: "EMOM 8 Minutos", detail: "<b>Estructura: 45'' ON / 15'' OFF</b>" },
+      { name: "Finisher Opcional (MetCon Cardiovascular)", sub: "Formato EMOM 10 min. Alterna un minuto de esfuerzo progresivo segmentado en bicicleta o cinta y un minuto de recuperación suave.", reps: "EMOM 10 Minutos", detail: "<b>Cardio Interválico</b>" }
     ],
-    technicalAnalysis: {
-      objectives: "Desbloquear el rango de movimiento axial y reclutar las unidades motoras del cuádriceps interno y aductores.",
-      tips: "En el Frog Walk mantén el coxis abajo de forma constante. En la Smith, no empujes la cadera hacia atrás; mantén un vector perfectamente vertical.",
-      strategies: "El esquema de repeticiones descendentes en Smith (12-10-8-6) permite una sobrecarga pesada segura. La triserie metabólica agota los vastos musculares por acumulación oclusiva terminal."
+    insights: {
+      warmup: { obj: "Desbloquear el rango de movimiento axial y lubricar articulaciones.", tip: "Mantén el coxis abajo de forma constante en el Frog Walk.", str: "Activación progresiva neuromuscular." },
+      main: { obj: "Reclutar unidades motoras del cuádriceps interno, aductores y tensión mecánica en glúteos.", tip: "En la Smith no empujes la cadera hacia atrás; mantén un vector perfectamente vertical.", str: "El esquema de repeticiones descendentes permite una sobrecarga pesada segura." },
+      metcon: { obj: "Agotar los vastos musculares por acumulación oclusiva terminal y vaciar glucógeno.", tip: "Fijar zona lumbar plana contra la colchoneta en los giros rusos.", str: "Triserie oclusiva para máxima congestión protectora." }
     }
   },
   {
@@ -384,26 +400,26 @@ const workouts = [
     disciplineSlug: "Musculación",
     level: "Torso Integrado",
     levelSlug: "Torso_Integrado",
-    desc: "Estímulo hipertrófico de la musculatura superior para un perfil estético armónico, optimizando la estabilidad escapulohumeral.",
+    desc: "Estímulo hipertrófico de la musculatura superior para un perfil estético armónico.",
     warmup: [
-      { name: "Rotaciones Externas en Polea (o Banda)", video: "https://www.youtube.com/shorts/kBhQ4B7rl0w", sub: "Codo pegado a la costilla a 90°, rota el antebrazo hacia afuera de manera estricta para activar el manguito rotador posterior.", reps: "3 series x 12 rep." },
-      { name: "Escapulares en Barra (Scapular Pull-Ups)", video: "https://www.youtube.com/shorts/fvPS6SOqCA0", sub: "Colgada de la barra, deprime y eleva las escápulas de forma totalmente aislada sin flexionar los codos.", reps: "3 series x 10 rep." },
-      { name: "Prone Incline Cobra Hold", video: "https://www.youtube.com/shorts/hgjCwjO2YUY", sub: "Boca abajo en banco inclinado a 30°, eleva los brazos hacia atrás formando una flecha con las palmas afuera.", reps: "3 series x 5 combos (5\")" }
+      { name: "Rotaciones Externas en Polea (o Banda)", video: "https://www.youtube.com/embed/fuWq7fg74dc", sub: "Codo pegado a la costilla a 90°, rota el antebrazo hacia afuera de manera estricta para activar el manguito rotador posterior.", reps: "3 series x 12 rep." },
+      { name: "Escapulares en Barra (Scapular Pull-Ups)", video: "https://www.youtube.com/embed/pE8PJsWEV7k", sub: "Colgada de la barra, deprime y eleva las escápulas de forma totalmente aislada sin flexionar los codos.", reps: "3 series x 10 rep." },
+      { name: "Prone Incline Cobra Hold", video: "https://www.youtube.com/embed/hgjCwjO2YUY", sub: "Boca abajo en banco inclinado a 30°, eleva los brazos hacia atrás formando una flecha con las palmas afuera.", reps: "3 series x 5 combos (5\")" }
     ],
     main: [
-      { name: "Press de Banca Inclinado con Barra (Incline Bench Press)", video: "https://www.youtube.com/shorts/98HWfiRonkE", sub: "Banco a 30°. Clava escápulas. Baja controlando la barra. Empuja fuerte desde los pies (leg drive) rompiendo la inercia del pectoral alto. <b>Interset Activo:</b> Entre series efectivas realiza inmediatamente 10 repeticiones de Remo Supino con Barra.", reps: "4 series x 10-8-6-6 rep.", detail: "<b>Tempo: 2.1.1.0</b> Carga Ascendente<br>Descanso: 60s post interset" },
-      { name: "Remo Supino con Barra (Interset Activo)", video: "https://www.youtube.com/watch?v=4XTcecic_Fg", sub: "Tracción horizontal pesada ejecutada inmediatamente al soltar el press inclinado. Enciende los bíceps y los dorsales medios de forma recíproca.", reps: "4 series x 10 rep.", detail: "<b>Tracción Horizontal</b>" },
-      { name: "BLOQUE PRINCIPAL EN SUPERSERIE HÍBRIDA ANTAGONISTA", sub: "<span class='sub-block-title'>A1</span> <b>Remo Unilateral con Mancuerna (Saw Row):</b> 10 reps por lado. Tracciona la mancuerna pesada llevando el codo hacia la cadera en un arco controlado. Baja lento en 3s. <a href='https://www.youtube.com/shorts/vu_YDt9nGv4' target='_blank' style='color:var(--fire-glow); text-decoration:underline; font-size:11px;'>Ver Video A1</a><br><br><span class='sub-block-title'>A2</span> <b>Press de Hombros Sentada con Mancuernas:</b> 10 reps. Sentada en banco erguido a 80°. Baja mancuernas controlando 3s hasta la altura de tus orejas. Pausa de 1s abajo, sube explosiva. <a href='https://www.youtube.com/shorts/k6tzKisR3NY' target='_blank' style='color:var(--fire-glow); text-decoration:underline; font-size:11px;'>Ver Video A2</a>", reps: "4 Rondas Efectivas", detail: "<b>Sin pausa entre A1 y A2</b><br>Descanso: 90s estrictos" }
+      { name: "Press de Banca Inclinado con Barra (Incline Bench Press)", video: "https://www.youtube.com/embed/a-UFQE4oxWY", sub: "Banco a 30°. Clava escápulas. Baja controlando la barra. Empuja fuerte desde los pies (leg drive). <b>Interset Activo:</b> Entre series efectivas realiza inmediatamente 10 repeticiones de Remo Supino con Barra.", reps: "4 series x 10-8-6-6 rep.", detail: "<b>Tempo: 2.1.1.0</b> Carga Ascendente<br>Descanso: 60s post interset" },
+      { name: "Remo Supino con Barra (Interset Activo)", video: "https://www.youtube.com/embed/mTQ_qg37MJk", sub: "Tracción horizontal pesada ejecutada inmediatamente al soltar el press inclinado. Enciende los bíceps y los dorsales medios.", reps: "4 series x 10 rep.", detail: "<b>Tracción Horizontal</b>" },
+      { name: "BLOQUE PRINCIPAL EN SUPERSERIE HÍBRIDA ANTAGONISTA", video: "https://www.youtube.com/embed/vu_YDt9nGv4", sub: "<span class='sub-block-title'>A1</span> <b>Remo Unilateral con Mancuerna (Saw Row):</b> 10 reps por lado. Tracciona la mancuerna pesada llevando el codo hacia la cadera en un arco controlado.<br><br><span class='sub-block-title'>A2</span> <b>Press de Hombros Sentada con Mancuernas:</b> 10 reps. Sentada en banco erguido a 80°. Baja mancuernas controlando 3s hasta la altura de tus orejas.", video2: "https://www.youtube.com/embed/k6tzKisR3NY", reps: "4 Rondas Efectivas", detail: "<b>Sin pausa entre A1 y A2</b><br>Descanso: 90s estrictos" }
     ],
     metcon: [
-      { name: "CIRCUITO DELTOIDES Y BRAZOS (ACCESORIOS)", sub: "<span class='sub-block-title'>Estación 1</span> <b>Spider Curl con Mancuernas (Bíceps):</b> 12 reps. Acostada de pecho sobre banco inclinado a 45°, brazos colgando. <a href='https://www.youtube.com/shorts/ivS3G35bapw' target='_blank' style='color:var(--fire-glow); text-decoration:underline; font-size:11px;'>Ver Video Spider</a><br><br><span class='sub-block-title'>Estación 2</span> <b>Vuelos Laterales en Polea Baja (Cable):</b> 12 reps por lado. Tracciona el cable cruzando por delante del cuerpo y elevándolo lateralmente (Tempo 2.0.1.1). <a href='https://www.youtube.com/shorts/23VoAvqwSzo' target='_blank' style='color:var(--fire-glow); text-decoration:underline; font-size:11px;'>Ver Video Polea</a><br><br><span class='sub-block-title'>Estación 3</span> <b>Vuelos Laterales Parciales de Pie:</b> Máximas reps posibles subiendo únicamente unos 20-30 cm desde tus muslos.", reps: "AMRAP de 12 Minutos", detail: "<b>Remate Estético Brazos</b><br>Descanso: 45-60s post Estación 3" },
-      { name: "The Olympic Midline Chipper (Volumen Core)", sub: "<span class='sub-block-title'>Fase 1</span> <b>75 Sit-Ups en Banco Inclinado con Disco:</b> Flexión potente contra el pecho controlando la bajada. <a href='https://www.youtube.com/watch?v=Sq3TFsIyvuA' target='_blank' style='color:var(--fire-glow); text-decoration:underline; font-size:11px;'>Ver Video Sit-Ups</a><br><br><span class='sub-block-title'>Fase 2</span> <b>50 Toes-to-Bar Colgada:</b> Eleva pies o rodillas contrayendo el abdomen inferior sin balancearte. <a href='https://www.youtube.com/shorts/fvPS6SOqCA0' target='_blank' style='color:var(--fire-glow); text-decoration:underline; font-size:11px;'>Ver Video T2B</a><br><br><span class='sub-block-title'>Fase 3</span> <b>25 Plancha Hollow Body Dynamic Push-Up:</b> Plancha alta balanceándote de puntas de pie adelante/atrás en hollow.", reps: "Time Cap: 9 Minutos", detail: "<b>Volumen Acumulado Estricto</b>" },
-      { name: "MetCon Final Metabólico / Finisher", sub: "Formato EMOM de 6-10 minutos alternando. <b>Minuto Impar:</b> 15 reps de Thrusters con Mancuernas. <br><b>Minuto Par:</b> 16 Dumbbell Hang Snatch (8 por lado, arranque potente desde colgante).", reps: "EMOM 6-10 Minutos", detail: "<b>Depleción y Potencia</b>" }
+      { name: "CIRCUITO DELTOIDES Y BRAZOS (ACCESORIOS)", video: "https://www.youtube.com/embed/ivS3G35bapw", sub: "<span class='sub-block-title'>Estación 1</span> <b>Spider Curl con Mancuernas (Bíceps):</b> 12 reps. Acostada de pecho sobre banco inclinado a 45°.<br><br><span class='sub-block-title'>Estación 2</span> <b>Vuelos Laterales en Polea Baja (Cable):</b> 12 reps por lado. Tracciona el cable cruzando por delante del cuerpo. <a onclick=\"window.playModalVideo('https://www.youtube.com/embed/V98wql8IfVA')\" style='color:var(--fire-glow); text-decoration:underline; cursor:pointer;'>Ver Video Polea</a><br><br><span class='sub-block-title'>Estación 3</span> <b>Vuelos Laterales Parciales de Pie:</b> Máximas reps posibles subiendo únicamente unos 20-30 cm desde tus muslos. <a onclick=\"window.playModalVideo('https://www.youtube.com/embed/AqPBcJC1ceI')\" style='color:var(--fire-glow); text-decoration:underline; cursor:pointer;'>Ver Video Parciales</a>", reps: "AMRAP de 12 Minutos", detail: "<b>Remate Estético Brazos</b><br>Descanso: 45-60s post Estación 3" },
+      { name: "The Olympic Midline Chipper (Volumen Core)", video: "https://www.youtube.com/embed/_5lIPt3FrGY", sub: "<span class='sub-block-title'>Fase 1</span> <b>75 Sit-Ups en Banco Inclinado con Disco:</b> Flexión potente contra el pecho controlando la bajada.<br><br><span class='sub-block-title'>Fase 2</span> <b>50 Toes-to-Bar Colgada:</b> Eleva pies o rodillas contrayendo el abdomen inferior sin balancearte. <a onclick=\"window.playModalVideo('https://www.youtube.com/embed/xX9Hzi7Onnw')\" style='color:var(--fire-glow); text-decoration:underline; cursor:pointer;'>Ver Video T2B</a><br><br><span class='sub-block-title'>Fase 3</span> <b>25 Plancha Hollow Body Dynamic Push-Up:</b> Plancha alta balanceándote adelante/atrás en hollow. <a onclick=\"window.playModalVideo('https://www.youtube.com/embed/dM3x-i2iJ-E')\" style='color:var(--fire-glow); text-decoration:underline; cursor:pointer;'>Ver Video Plancha</a>", reps: "Time Cap: 9 Minutos", detail: "<b>Volumen Acumulado Estricto</b>" },
+      { name: "MetCon Final Metabólico / Finisher", video: "https://www.youtube.com/embed/u3wKkZjE8QM", sub: "Formato EMOM de 6-10 minutos alternando. <b>Minuto Impar:</b> 15 reps de Thrusters con Mancuernas.<br><b>Minuto Par:</b> 16 Dumbbell Hang Snatch (8 por lado, arranque potente desde colgante). <a onclick=\"window.playModalVideo('https://www.youtube.com/embed/edUB4HIDChg')\" style='color:var(--fire-glow); text-decoration:underline; cursor:pointer;'>Ver Video Snatch</a>", reps: "EMOM 6-10 Minutos", detail: "<b>Depleción y Potencia</b>" }
     ],
-    technicalAnalysis: {
-      objectives: "Sobrecargar la sección superior del pectoral y esculpir la porción lateral del deltoides junto con flexores aislados de codo.",
-      tips: "En el remo supino, mantén el torso lo más paralelo al suelo posible para desactivar el trapecio superior. En el Spider Curl, no balances los codos.",
-      strategies: "La tri-serie en AMRAP de 12' acumula fatiga oclusiva masiva en los brazos de Cecilia, maximizando el bombeo sanguíneo localizado."
+    insights: {
+      warmup: { obj: "Optimizar la estabilidad escapulohumeral y activar manguito rotador.", tip: "Deprime las escápulas de forma aislada antes de traccionar en barra.", str: "Activación tónica controlada superior." },
+      main: { obj: "Sobrecargar la sección superior del pectoral y dorsales medios de forma recíproca.", tip: "En el remo supino mantén el torso paralelo al suelo para desactivar trapecio superior.", str: "Súper series antagonistas pesadas para optimizar densidad por unidad de tiempo." },
+      metcon: { obj: "Esculpir la porción lateral del deltoides junto con flexores aislados de codo y vaciado de Core.", tip: "En el Spider Curl no balances los codos bajo ninguna circunstancia.", str: "AMRAP láctico final enfocado en densidad estética." }
     }
   },
   {
@@ -414,24 +430,24 @@ const workouts = [
     disciplineSlug: "Musculación",
     level: "Cadena Posterior",
     levelSlug: "Cadena_Posterior",
-    desc: "Máximo estímulo mecánico en elongación muscular para la cadena posterior, estimulando la hipertrofia mediada por estiramiento.",
+    desc: "Máximo estímulo mecánico en elongación muscular para la cadena posterior.",
     warmup: [
-      { name: "Buenos Días con Bastón/Barra Vacía", video: "https://www.youtube.com/shorts/eQBjIHP5d3I", sub: "Bisagra de cadera empujando pelvis atrás estirando isquios de forma controlada. Columna perfectamente neutra y firme.", reps: "3 series x 10 rep." },
-      { name: "Puente de Glúteos con Pies Elevados", video: "https://www.youtube.com/shorts/6gl4x_OqDQ0", sub: "Apoya los talones en un cajón o banco, eleva cadera y contrae de forma estricta los glúteos e isquios en la parte superior.", reps: "3 series x 12 rep." },
-      { name: "Abducciones de Cadera en Plancha Lateral", video: "https://www.youtube.com/shorts/dmSUVf4cle8", sub: "Plancha lateral apoyada en rodilla inferior, eleva de forma recta la pierna superior activando glúteo medio aislado.", reps: "3 series x 12 rep. (Por lado)" }
+      { name: "Buenos Días con Bastón/Barra Vacía", video: "https://www.youtube.com/embed/YA-h3n9L4YU", sub: "Bisagra de cadera empujando pelvis atrás estirando isquios de forma controlada. Columna perfectamente neutra y firme.", reps: "3 series x 10 rep." },
+      { name: "Puente de Glúteos con Pies Elevados", video: "https://www.youtube.com/embed/6gl4x_OqDQ0", sub: "Apoya los talones en un cajón o banco, eleva cadera y contrae de forma estricta los glúteos e isquios en la parte superior.", reps: "3 series x 12 rep." },
+      { name: "Abducciones de Cadera en Plancha Lateral", video: "https://www.youtube.com/embed/S60Rz9-gj9k", sub: "Plancha lateral apoyada en rodilla inferior, eleva de forma recta la pierna superior activando glúteo medio aislado.", reps: "3 series x 12 rep. (Por lado)" }
     ],
     main: [
-      { name: "Peso Muerto con Barra desde Bloques (Deficit RDL)", video: "https://www.youtube.com/watch?v=ZPeJ0s8X6Gs", sub: "Set de aproximación: 1x12. La barra inicia al nivel de tus espinillas altas. Bisagra de cadera horizontal pura. Mantén la barra rozando tus piernas. Espalda rígida como piedra, frena abajo en la fascia.", reps: "4 series x 8-10 repeticiones", detail: "<b>Tempo: 3.1.1.0</b> RPE: 7.5-8<br>Descanso: 90-120 segundos" },
-      { name: "BLOQUE PRINCIPAL EN SUPERSERIE HÍBRIDA ESTÉTICA", sub: "<span class='sub-block-title'>B1</span> <b>Curl Femoral Acostada con Parciales en Estiramiento:</b> 12 reps estrictas completas + 6-8 reps parciales desde arriba. <a href='https://www.youtube.com/shorts/5Vd8Lnh49eo' target='_blank' style='color:var(--fire-glow); text-decoration:underline; font-size:11px;'>Ver Video B1</a><br><br><span class='sub-block-title'>B2</span> <b>Buenos Días Sentada en Banco con Barra Ligera:</b> 15 reps. Sentada a horcajadas. Inclina el torso adelante con la espalda recta metiendo abdomen entre muslos. Estiramiento masivo aductor. <a href='https://www.youtube.com/watch?v=ZPeJ0s8X6Gs' target='_blank' style='color:var(--fire-glow); text-decoration:underline; font-size:11px;'>Ver Video B2</a>", reps: "3-4 Rondas Efectivas", detail: "<b>Sin descanso entre B1 y B2</b><br>Descanso: 75s entre vueltas" }
+      { name: "Peso Muerto con Barra desde Bloques (Deficit RDL)", video: "https://www.youtube.com/embed/9CtGuT4QQAc", sub: "Set de aproximación: 1x12. La barra inicia al nivel de tus espinillas altas. Bisagra de cadera horizontal pura. Mantén la barra rozando tus piernas. Espalda rígida como piedra, frena abajo en la fascia.", reps: "4 series x 8-10 repeticiones", detail: "<b>Tempo: 3.1.1.0</b> RPE: 7.5-8<br>Descanso: 90-120 segundos" },
+      { name: "BLOQUE PRINCIPAL EN SUPERSERIE HÍBRIDA ESTÉTICA", video: "https://www.youtube.com/embed/lGNeJsdqJwg", sub: "<span class='sub-block-title'>B1</span> <b>Curl Femoral Acostada con Parciales en Estiramiento:</b> 12 reps estrictas completas + 6-8 reps parciales desde arriba.<br><br><span class='sub-block-title'>B2</span> <b>Buenos Días Sentada en Banco con Barra Ligera:</b> 15 reps. Sentada a horcajadas. Inclina el torso adelante con la espalda recta.", video2: "https://www.youtube.com/embed/GN6iaVAZN-0", reps: "3-4 Rondas Efectivas", detail: "<b>Sin descanso entre B1 y B2</b><br>Descanso: 75s entre vueltas" }
     ],
     metcon: [
-      { name: "CIRCUITO DE REMATE ESTÉTICO LÁCTICO", sub: "<span class='sub-block-title'>Estación 1</span> <b>Abducción con Banda Elástica en Sentadilla Isométrica Baja:</b> 15 reps. Sentadilla profunda contra rack, abre rodillas contra banda: 5 reps adelante, 5 vertical, 5 atrás. <a href='https://www.youtube.com/shorts/dmSUVf4cle8' target='_blank' style='color:var(--fire-glow); text-decoration:underline; font-size:11px;'>Ver Video Abducción</a><br><br><span class='sub-block-title'>Estación 2</span> <b>Caminata Lateral de Bombero (Banded Side Steps):</b> 20 pasos (10 por lado). Banda en punteras, mantén flexión de rodilla a 90° constante desplazándote lateral. <a href='https://www.youtube.com/shorts/dmSUVf4cle8' target='_blank' style='color:var(--fire-glow); text-decoration:underline; font-size:11px;'>Ver Video Caminata</a><br><br><span class='sub-block-title'>Estación 3</span> <b>Smith Machine Frog Pumps (Énfasis Glúteo mayor):</b> 45s sin parar. Tumbada supina, plantas de los pies juntas, empuja la barra guiada apretando glúteos arriba. <a href='https://www.youtube.com/shorts/hSrV6f4Ey4Y' target='_blank' style='color:var(--fire-glow); text-decoration:underline; font-size:11px;'>Ver Video Frog Pumps</a>", reps: "3 Rondas Continuas de Remate", detail: "<b>Circuito Integrado</b><br>Descanso: 60s post Frog Pumps" },
-      { name: "Hyrox Core Engine (Estabilidad Isométrica)", sub: "<span class='sub-block-title'>M1</span> <b>30 Mountain Climbers continuos:</b> En posición de plancha alta, lleva rodillas rápido al pecho manteniendo cadera fija.<br><br><span class='sub-block-title'>M2</span> <b>24 pasos de Caminata de Granjero Pesada Bilateral:</b> Mancuernas muy pesadas en ambas manos activando trapecio y core para caminar erguida. <a href='https://www.youtube.com/watch?v=MH8id-EaoPA' target='_blank' style='color:var(--fire-glow); text-decoration:underline; font-size:11px;'>Ver Video Farmer</a><br><br><span class='sub-block-title'>M3</span> <b>12 repeticiones de Reverse Crunches en Banco Inclinado:</b> Sujétate arriba, eleva la pelvis despegando el coxis y controla la bajada excéntrica de abdominales. <a href='https://www.youtube.com/shorts/KJ-2XT9Uu-E' target='_blank' style='color:var(--fire-glow); text-decoration:underline; font-size:11px;'>Ver Video Reverse Crunch</a>", reps: "AMRAP de 6-9 Minutos", detail: "<b>Resistencia y Control</b>" }
+      { name: "CIRCUITO DE REMATE ESTÉTICO LÁCTICO", video: "https://www.youtube.com/embed/4QHr6xPHKQE", sub: "<span class='sub-block-title'>Estación 1</span> <b>Abducción con Banda Elástica en Sentadilla Isométrica Baja:</b> 15 reps. Sentadilla profunda contra rack, abre rodillas contra banda.<br><br><span class='sub-block-title'>Estación 2</span> <b>Caminata Lateral de Bombero (Banded Side Steps):</b> 20 pasos (10 por lado). Banda en punteras, mantén flexión constante. <a onclick=\"window.playModalVideo('https://www.youtube.com/embed/3tHXjTlKX0g')\" style='color:var(--fire-glow); text-decoration:underline; cursor:pointer;'>Ver Video Caminata</a><br><br><span class='sub-block-title'>Estación 3</span> <b>Smith Machine Frog Pumps (Énfasis Glúteo mayor):</b> 45s sin parar. Plantas de los pies juntas, empuja barra guiada apretando arriba. <a onclick=\"window.playModalVideo('https://www.youtube.com/embed/VjyxtvgyimE')\" style='color:var(--fire-glow); text-decoration:underline; cursor:pointer;'>Ver Video Frog Pumps</a>", reps: "3 Rondas Continuas de Remate", detail: "<b>Circuito Integrado</b><br>Descanso: 60s post Frog Pumps" },
+      { name: "Hyrox Core Engine (Estabilidad Isométrica)", video: "https://www.youtube.com/embed/kLh-uczlPLg", sub: "<span class='sub-block-title'>M1</span> <b>30 Mountain Climbers continuos:</b> En posición de plancha alta, lleva rodillas rápido al pecho.<br><br><span class='sub-block-title'>M2</span> <b>24 pasos de Caminata de Granjero Pesada Bilateral:</b> Mancuernas muy pesadas en ambas manos activando transverso. <a onclick=\"window.playModalVideo('https://www.youtube.com/embed/p5MNNosenJc')\" style='color:var(--fire-glow); text-decoration:underline; cursor:pointer;'>Ver Video Farmer</a><br><br><span class='sub-block-title'>M3</span> <b>12 repeticiones de Reverse Crunches en Banco Inclinado:</b> Sujétate arriba, eleva la pelvis despegando el coxis de forma estricta. <a onclick=\"window.playModalVideo('https://www.youtube.com/embed/KJ-2XT9Uu-E')\" style='color:var(--fire-glow); text-decoration:underline; cursor:pointer;'>Ver Video Reverse Crunch</a>", reps: "AMRAP de 6-9 Minutos", detail: "<b>Resistencia y Control</b>" }
     ],
-    technicalAnalysis: {
-      objectives: "Maximizar el estímulo mecánico en elongación muscular para la cadena posterior, estimulando la hipertrofia mediada por estiramiento.",
-      tips: "En el Seated Good Morning mantén la columna torácica totalmente cóncava; si se encorva la espalda, el estímulo migra fuera del aductor.",
-      strategies: "La ya mencionada pausa de 1 segundo en el punto inferior del Peso Muerto Rumano disipa por completo el reflejo miotático elástico para obligar a una tracción muscular pura."
+    insights: {
+      warmup: { obj: "Activar glúteo medio y erectores de columna bajo vectores estables.", tip: "Mantén la columna perfectly rígida en los Buenos Días.", str: "Estiramiento dinámico preventivo." },
+      main: { obj: "Estimular la hipertrofia mediada por estiramiento en isquiosurales y aductores.", tip: "La pausa de 1 segundo abajo en el Deficit RDL disipa el reflejo elástico forzando contracción pura.", str: "Sobrecarga excéntrica controlada." },
+      metcon: { obj: "Saturación láctica en glúteo mayor y remate profundo de la línea media.", tip: "En el Seated Good Morning mantén la columna cóncava; si se encorva migra el estímulo fuera del aductor.", str: "Circuito híbrido continuo terminal." }
     }
   },
   {
@@ -442,27 +458,27 @@ const workouts = [
     disciplineSlug: "Musculación",
     level: "Torso Estético",
     levelSlug: "Torso_Estético",
-    desc: "Hipertrofia de densidad en el tren superior con énfasis avanzado en brazos estéticos (bíceps/tríceps) y depleción volumétrica final.",
+    desc: "Hipertrofia de densidad en el tren superior con énfasis avanzado en brazos.",
     warmup: [
-      { name: "Arm Circles con Mancuerna Ligera", video: "https://www.youtube.com/embed/jjlekYs1cfQ", sub: "Círculos controlados adelante y atrás lubricando la cabeza del húmero dentro de la cavidad glenoidea.", reps: "2-3 series x 10 círculos" },
-      { name: "Inchworm con Flexión de Tríceps", video: "https://www.youtube.com/embed/sssbpt4XsG8", sub: "Camina a plancha alta, manos juntas estilo diamante, ejecuta flexión enfocando el esfuerzo en los brazos.", reps: "2-3 series x 6-8 rep." },
-      { name: "Prone Incline Y-Raise", video: "https://www.youtube.com/embed/EXlTRetpWGA", sub: "Acostada de pecho en banco inclinado, eleva los brazos en 'V' activando trapecio inferior y deltoides posterior.", reps: "2-3 series x 15 rep." }
+      { name: "Arm Circles con Mancuerna Ligera", video: "https://www.youtube.com/embed/W431lAeylOc", sub: "Círculos controlados adelante y atrás lubricando la cabeza del húmero dentro de la cavidad glenoidea.", reps: "2-3 series x 10 círculos" },
+      { name: "Inchworm con Flexión de Tríceps", video: "https://www.youtube.com/embed/Hx1UsDQxT4M", sub: "Camina a plancha alta, manos juntas estilo diamante, ejecuta flexión enfocando el esfuerzo en los brazos.", reps: "2-3 series x 6-8 rep." },
+      { name: "Prone Incline Y-Raise", video: "https://www.youtube.com/embed/BQay3kmFgXY", sub: "Acostada de pecho en banco inclinado, eleva los brazos en 'V' activando trapecio inferior.", reps: "2-3 series x 15 rep." }
     ],
     main: [
-      { name: "Dumbbell Floor Press (Press de Banca en Suelo)", video: "https://www.youtube.com/embed/jjlekYs1cfQ", sub: "Acostada boca arriba en el suelo con pies apoyados. Baja controlando hasta que tus tríceps toquen suavemente el piso. Pausa de 1s real para eliminar inercia elástica y empuja explosiva hacia el techo apretando el pectoral.", reps: "4 series x 6-8 repeticiones", detail: "<b>Tempo: 3.1.X.1</b> RPE: 8<br>Descanso: 90-120 segundos" },
-      { name: "Remo con Barra Libre en Pronación (Bent-Over Row)", video: "https://www.youtube.com/embed/4XTcecic_Fg", sub: "Torso inclinado a 45°, columna neutra rígida. Tracciona la barra guiando con codos hacia la boca del estómago y junta omóplatos 2s arriba. <b>Interset Activo:</b> Al finalizar, realiza inmediatamente 10-15 repeticiones de Curl de Bíceps en Banco Inclinado.", reps: "3-4 series x 8-10 repeticiones", detail: "<b>Tempo: 2.0.1.2</b><br>Descanso: 90s post curl de bíceps" },
-      { name: "Curl de Bíceps con Mancuernas en Banco Inclinado (Interset)", video: "https://www.youtube.com/embed/ivS3G35bapw", sub: "Ejecutado de forma oclusiva inmediatamente al dejar la barra del remo. Palmas arriba estirando al máximo la cabeza larga.", reps: "3-4 series x 10-15 rep.", detail: "<b>Aislamiento Bíceps</b>" },
-      { name: "SUPER SERIE DE EMPUJE Y POSTURA SUPERIOR", sub: "<span class='sub-block-title'>A1</span> <b>Face Pull en Polea Alta arrodillada con Iso-Hold Terminal:</b> 15 reps. Tracciona soga hacia tus ojos separando extremos, guía con codos afuera. En las últimas 3 reps, aguanta el bloqueo atrás 5s estrictos. <a onclick=\"window.playModalVideo('https://www.youtube.com/embed/IeOqdw9WI90')\" style='color:var(--fire-glow); text-decoration:underline;'>Ver Video Face Pull</a><br><br><span class='sub-block-title'>A2</span> <b>Press de Pecho Plano con Mancuernas (Fallo Técnico):</b> 1 serie al fallo por ronda. Acostada en banco plano. Controla bajada en 2s, pausa de 1s abajo estirando el pectoral. <a onclick=\"window.playModalVideo('https://www.youtube.com/embed/gfNrg3lI6kU')\" style='color:var(--fire-glow); text-decoration:underline;'>Ver Video Press Plano</a>", reps: "3 Rondas de Densidad", detail: "<b>Sin pausa entre A1 y A2</b><br>Descanso: 70 segundos" }
+      { name: "Dumbbell Floor Press (Press de Banca en Suelo)", video: "https://www.youtube.com/embed/tXv-rEa5xn8", sub: "Acostada boca arriba en el suelo. Baja controlando hasta que tus tríceps toquen suavemente el piso. Pausa de 1s real para eliminar inercia elástica.", reps: "4 series x 6-8 repeticiones", detail: "<b>Tempo: 3.1.X.1</b> RPE: 8<br>Descanso: 90-120 segundos" },
+      { name: "Remo con Barra Libre en Pronación (Bent-Over Row)", video: "https://www.youtube.com/embed/ezrZnmjZTR4", sub: "Torso inclinado a 45°, columna neutra rígida. Tracciona la barra guiando con codos hacia la boca del estómago. <b>Interset Activo:</b> Al finalizar, realiza inmediatamente curl inclinado.", reps: "3-4 series x 8-10 repeticiones", detail: "<b>Tempo: 2.0.1.2</b><br>Descanso: 90s post curl de bíceps" },
+      { name: "Curl de Bíceps con Mancuernas en Banco Inclinado (Interset)", video: "https://www.youtube.com/embed/uCUaRFlA9vE", sub: "Ejecutado de forma oclusiva inmediatamente al dejar la barra del remo. Palmas arriba estirando al máximo la cabeza larga.", reps: "3-4 series x 10-15 rep.", detail: "<b>Aislamiento Bíceps</b>" },
+      { name: "SUPER SERIE DE EMPUJE Y POSTURA SUPERIOR", video: "https://www.youtube.com/embed/IeOqdw9WI90", sub: "<span class='sub-block-title'>A1</span> <b>Face Pull en Polea Alta arrodillada con Iso-Hold Terminal:</b> 15 reps. Tracciona soga hacia tus ojos separando extremos.<br><br><span class='sub-block-title'>A2</span> <b>Press de Pecho Plano con Mancuernas (Fallo Técnico):</b> 1 serie al fallo por ronda. Acostada en banco plano. Controla bajada en 2s. <a onclick=\"window.playModalVideo('https://www.youtube.com/embed/mTaiQemkEpU')\" style='color:var(--fire-glow); text-decoration:underline; cursor:pointer;'>Ver Video Press Plano</a>", reps: "3 Rondas de Densidad", detail: "<b>Sin pausa entre A1 y A2</b><br>Descanso: 70 segundos" }
     ],
     metcon: [
-      { name: "TRI-SERIE DE REMATE BRAZOS ESTÉTICOS", sub: "<span class='sub-block-title'>Estación A</span> <b>Preacher Curl Unilateral con Mancuerna (Banco Scott):</b> 12 reps por brazo. Apoya el brazo en el respaldo, aísla el bíceps y controla la excéntrica por completo. <a onclick=\"window.playModalVideo('https://www.youtube.com/embed/sssbpt4XsG8')\" style='color:var(--fire-glow); text-decoration:underline;'>Ver Video Preacher Curl</a><br><br><span class='sub-block-title'>Estación B</span> <b>Rompe-Cráneos con Mancuernas + Pushdown Combinado:</b> 12 reps de skull crushers controlados hacia orejas. Inmediatamente ponte de pie en la polea y ejecuta 8-12 pushdowns con soga al fallo. <a onclick=\"window.playModalVideo('https://www.youtube.com/embed/EXlTRetpWGA')\" style='color:var(--fire-glow); text-decoration:underline;'>Ver Video Skullcrushers</a><br><br><span class='sub-block-title'>Estación C</span> <b>Sostén Isométrico de Peso (Farmer's Hold Asimétrico):</b> Sostén estricto de 20s por lado. Mancuerna muy pesada mano der. abajo (maleta) y mancuerna ligera mano izq. overhead. Quédate inmóvil bloqueando core lateral. <a onclick=\"window.playModalVideo('https://www.youtube.com/embed/ZapT1pafnCI')\" style='color:var(--fire-glow); text-decoration:underline;'>Ver Video Farmer Hold</a>", reps: "AMRAP de 12 Minutos", detail: "<b>Bucle Continuo de Brazos</b><br>Descanso: 45s post Estación C" },
-      { name: "Core Avanzado Tabata + Remate Isométrico", sub: "<span class='sub-block-title'>Bloque A (Tabata)</span> <b>Knees to Chest Colgada + Plank Step Up:</b> Alterna 20\" ON / 10\" OFF. <a onclick=\"window.playModalVideo('https://www.youtube.com/embed/7oPUAVy-NZs')\" style='color:var(--fire-glow); text-decoration:underline;'>Ver Video Knees to Chest</a> | <a onclick=\"window.playModalVideo('https://www.youtube.com/embed/fCXsX8kyyCI')\" style='color:var(--fire-glow); text-decoration:underline;'>Ver Video Plank Step Up</a><br><br><span class='sub-block-title'>Bloque B Continuous</span> <b>Hollow Body Hold Isométrico Estático:</b> 2-3 rondas sin cortar de 45 segundos de balanceo mecedora corta con zona lumbar aplanada.", reps: "Tabata (4') + Bloque B (3')", detail: "<b>Vaciado de Núcleo Profundo</b>" },
-      { name: "MetCon Escalera Ascendente (Vaciado Terminal)", sub: "<span class='sub-block-title'>Estación 1</span> <b>Calorías en Assault Bike o Remo:</b> 3, 6, 9, 12, 15... a máxima potencia en la máquina. <a onclick=\"window.playModalVideo('https://www.youtube.com/embed/wF1N48xFcdQ')\" style='color:var(--fire-glow); text-decoration:underline;'>Ver Video Cardio</a><br><br><span class='sub-block-title'>Estación 2</span> <b>Hammer Curl to Overhead Press:</b> 3, 6, 9, 12, 15... reps del combo martillo a press estricto de hombros bloqueando arriba. <a href='#' onclick=\"window.playModalVideo('https://www.youtube.com/embed/fMF_xfZnrbY'); return false;\" style='color:var(--fire-glow); text-decoration:underline;'>Ver Video Curl to Press</a>", reps: "AMRAP Escalera 10 Minutos", detail: "<b>Escalera Ascendente Cruzada</b>" }
+      { name: "TRI-SERIE DE REMATE BRAZOS ESTÉTICOS", video: "https://www.youtube.com/embed/L3RNwVAVKqA", sub: "<span class='sub-block-title'>Estación A</span> <b>Preacher Curl Unilateral con Mancuerna (Banco Scott):</b> 12 reps por brazo. Apoya el brazo en el respaldo, aísla el bíceps.<br><br><span class='sub-block-title'>Estación B</span> <b>Rompe-Cráneos con Mancuernas + Pushdown Combinado:</b> 12 reps de skull crushers controlados hacia orejas e inmediatamente pushdown con soga al fallo.<br><br><span class='sub-block-title'>Estación C</span> <b>Sostén Isométrico de Peso (Farmer's Hold Asimétrico):</b> Sostén estricto de 20s por lado. Mancuerna muy pesada mano der. abajo y mancuerna ligera mano izq. overhead. <a onclick=\"window.playModalVideo('https://www.youtube.com/embed/ZapT1pafnCI')\" style='color:var(--fire-glow); text-decoration:underline; cursor:pointer;'>Ver Video Farmer Hold</a>", reps: "AMRAP de 12 Minutos", detail: "<b>Bucle Continuo de Brazos</b><br>Descanso: 45s post Estación C" },
+      { name: "Core Avanzado Tabata + Remate Isométrico", video: "https://www.youtube.com/embed/7oPUAVy-NZs", sub: "<span class='sub-block-title'>Bloque A (Tabata)</span> <b>Knees to Chest Colgada + Plank Step Up:</b> Alterna 20\" ON / 10\" OFF. <a onclick=\"window.playModalVideo('https://www.youtube.com/embed/nKMMqPTy438')\" style='color:var(--fire-glow); text-decoration:underline; cursor:pointer;'>Ver Video Plank Step Up</a><br><br><span class='sub-block-title'>Bloque B Continuous</span> <b>Hollow Body Hold Isométrico Estático:</b> 2-3 rondas sin cortar de 45 segundos de balanceo mecedora corta con zona lumbar aplanada. <a onclick=\"window.playModalVideo('https://www.youtube.com/embed/EsnM8eBtazU')\" style='color:var(--fire-glow); text-decoration:underline; cursor:pointer;'>Ver Video Hollow Hold</a>", reps: "Tabata (4') + Bloque B (3')", detail: "<b>Vaciado de Núcleo Profundo</b>" },
+      { name: "MetCon Escalera Ascendente (Vaciado Terminal)", sub: "<span class='sub-block-title'>Estación 1</span> <b>Calorías en Assault Bike o Remo:</b> 3, 6, 9, 12, 15... a máxima potencia en la máquina.<br><br><span class='sub-block-title'>Estación 2</span> <b>Hammer Curl to Overhead Press:</b> 3, 6, 9, 12, 15... reps del combo martillo a press estricto de hombros bloqueando arriba. <a onclick=\"window.playModalVideo('https://www.youtube.com/embed/fMF_xfZnrbY')\" style='color:var(--fire-glow); text-decoration:underline; cursor:pointer;'>Ver Video Curl to Press</a>", reps: "AMRAP Escalera 10 Minutos", detail: "<b>Escalera Ascendente Cruzada</b>" }
     ],
-    technicalAnalysis: {
-      objectives: "Sobrecargar empujes y tracciones horizontales compactas, maximizando el estímulo de brazos (bíceps/tríceps) mediante un interset activo oclusivo.",
-      tips: "En el Floor Press, los codos deben tocar suavemente el suelo, nunca dejes caer el peso bruscamente para no golpear la articulación.",
-      strategies: "La combinación de escalera metabólica cruzada (Assault Bike + Curl to Press) induce una deplesión total de glucógeno y un bombeo sistémico semanal masivo."
+    insights: {
+      warmup: { obj: "Lubricar cabeza humeral e incrementar estabilidad torácica superior.", tip: "No hiper-extiendas el cuello durante las elevaciones inclinadas en V.", str: "Activación escapular tridimensional." },
+      main: { obj: "Sobrecargar empujes y tracciones horizontales compactas de forma segura.", tip: "En el Floor Press los codos deben tocar de forma controlada el suelo para disipar inercia.", str: "Interset activo acumulativo oclusivo." },
+      metcon: { obj: "Inducir deplesión total de glucógeno y generar bombeo sanguíneo masivo superior.", tip: "Fija el core lateral de manera estricta durante el Farmer's Hold asimétrico.", str: "Escalera metabólica cruzada terminal." }
     }
   },
   {
@@ -473,25 +489,25 @@ const workouts = [
     disciplineSlug: "Musculación",
     level: "Cuádriceps",
     levelSlug: "Cuádriceps",
-    desc: "Estímulo volumétrico y metabólico del cuádriceps utilizando vectores mecánicos guiados libres de fatiga axial.",
+    desc: "Estímulo volumétrico y metabólico del cuádriceps libre de fatiga axial.",
     warmup: [
-      { name: "Sentadilla Lateral Alternada con Peso Corporal", video: "https://www.youtube.com/shorts/Iw1HZ3kKlYc", sub: "Desplaza el peso hacia un lateral rompiendo paralelo de forma fluida para activar aductores.", reps: "3 series x 8 reps/lado" },
-      { name: "Monster Walks hacia atrás con Banda", video: "https://www.youtube.com/shorts/iv05gGqjl8k", sub: "Banda en rodillas, camina hacia atrás abriendo pies de forma controlada para activar excéntricamente el vasto lateral.", reps: "3 series x 12 pasos" },
-      { name: "Goblet Squat Isométrica en Step", video: "https://www.youtube.com/shorts/iv05gGqjl8k", sub: "Sostén la posición isométrica en la parte profunda abriendo las caderas con los codos.", reps: "3 series x 30 segundos" }
+      { name: "Sentadilla Lateral Alternada con Peso Corporal", video: "https://www.youtube.com/embed/dhDjKmTX8tU", sub: "Desplaza el peso hacia un lateral rompiendo paralelo de forma fluida para activar aductores.", reps: "3 series x 8 reps/lado" },
+      { name: "Monster Walks hacia atrás con Banda", video: "https://www.youtube.com/embed/qzVw01gntoA", sub: "Banda en rodillas, camina hacia atrás abriendo pies de forma controlada para activar excéntricamente el vasto lateral.", reps: "3 series x 12 pasos" },
+      { name: "Goblet Squat Isométrica en Step", video: "https://www.youtube.com/embed/pLD82dZyhDY", sub: "Sostén la posición isométrica en la parte profunda abriendo las caderas con los codos.", reps: "3 series x 30 segundos" }
     ],
     main: [
-      { name: "Sentadilla Búlgara en Máquina Smith (Énfasis Cuádriceps)", video: "https://www.youtube.com/shorts/Iw1HZ3kKlYc", sub: "Coloca el pie delantero cerca de la línea de la barra Smith y mantén el torso perfectamente vertical. Al bajar, la rodilla viaja adelante superando la puntera del pie, maximizando la flexión de rodilla.", reps: "4 series x 8 repeticiones por pierna", detail: "<b>Tempo: 3.1.X.1</b> Descanso: 15-30s entre piernas; 90s sets" },
-      { name: "Prensa de Piernas Horizontal - El Combo de Isquemia", video: "https://www.youtube.com/watch?v=sxF9BcDt-yY", sub: "Coloca los pies juntos al centro del carro. Haz las 10-15 reps profundas bilaterales. Inmediatamente empuja, saca una pierna y frena la bajada de la prensa contando 3s con una sola pierna.", reps: "3 series x 15 Bilat + 8/8 Negativas", detail: "<b>Sobrecarga Excéntrica Unilateral</b><br>Descanso: 90 segundos entre series" },
-      { name: "BLOQUE PRINCIPAL EN SUPERSERIE DE ALTA DENSIDAD", sub: "<span class='sub-block-title'>B1</span> <b>Sentadilla Sumo con KB en Déficit:</b> 12 reps. Parada sobre dos steps altos, toma una KB pesada. Baja de forma profunda abriendo rodillas para estirar aductores y vasto medial interno. <a href='https://www.youtube.com/shorts/iv05gGqjl8k' target='_blank' style='color:var(--fire-glow); text-decoration:underline; font-size:11px;'>Ver Video B1</a><br><br><span class='sub-block-title'>B2</span> <b>Sumo Squat Parciales Fase Baja:</b> 1 serie al Fallo Técnico Mecánico (RPE 10). Al terminar las completas de B1, suelta la KB e inmediatamente quédate abajo realizando rebotes cortos en el tercio inferior del recorrido hasta el fallo muscular.", reps: "3 Rondas Completas", detail: "<b>Sin descanso entre B1 y B2</b><br>Descanso: 90-120s al terminar B2" }
+      { name: "Sentadilla Búlgara en Máquina Smith (Énfasis Cuádriceps)", video: "https://www.youtube.com/embed/LPhYdIg1cbg", sub: "Coloca el pie delantero cerca de la línea de la barra Smith y mantén el torso perfectamente vertical. Al bajar, la rodilla viaja adelante superando la puntera.", reps: "4 series x 8 repeticiones por pierna", detail: "<b>Tempo: 3.1.X.1</b> Descanso: 15-30s entre piernas; 90s sets" },
+      { name: "Prensa de Piernas Horizontal - El Combo de Isquemia", video: "https://www.youtube.com/embed/uvRKEocJTBw", sub: "Coloca los pies juntos al centro del carro. Haz las 10-15 reps profundas bilaterales e inmediatamente frena la bajada contando 3s de forma unilateral.", reps: "3 series x 15 Bilat + 8/8 Negativas", detail: "<b>Sobrecarga Excéntrica Unilateral</b><br>Descanso: 90 segundos entre series" },
+      { name: "BLOQUE PRINCIPAL EN SUPERSERIE DE ALTA DENSIDAD", video: "https://www.youtube.com/embed/iv05gGqjl8k", sub: "<span class='sub-block-title'>B1</span> <b>Sentadilla Sumo con KB en Déficit:</b> 12 reps. Parada sobre dos steps altos, toma una KB pesada. Baja de forma profunda abriendo rodillas.<br><br><span class='sub-block-title'>B2</span> <b>Sumo Squat Parciales Fase Baja:</b> 1 serie al Fallo Técnico Mecánico (RPE 10). Realiza rebotes cortos en el tercio inferior. <a onclick=\"window.playModalVideo('https://www.youtube.com/embed/JVQLprAZvgg')\" style='color:var(--fire-glow); text-decoration:underline; cursor:pointer;'>Ver Video Parciales</a>", reps: "3 Rondas Completas", detail: "<b>Sin descanso entre B1 y B2</b><br>Descanso: 90-120s al terminar B2" }
     ],
     metcon: [
-      { name: "BLOQUE DE PANTORRILLAS ACUMULATIVO (EMOM 12')", sub: "<span class='sub-block-title'>M1</span> <b>Elevación de Talones Sentada (Sóleos):</b> 20 reps. Contracción estricta de 2 segundos arriba. <a href='https://www.youtube.com/shorts/iv05gGqjl8k' target='_blank' style='color:var(--fire-glow); text-decoration:underline; font-size:11px;'>Ver Video Sóleos</a><br><br><span class='sub-block-title'>M2</span> <b>Heavy Kettlebell Farmer's Walk en Puntas:</b> 45s de Tip-Toe carry con KBs muy pesadas bloqueando gastrocnemios altos.<br><br><span class='sub-block-title'>M3</span> <b>Elevación de talones de pie en Step:</b> Máximas reps continuas durante 45 segundos.", reps: "EMOM 12 Minutos (4 vueltas)", detail: "<b>Aislamiento Tríceps Sural</b>" },
-      { name: "Cross-Body Fire (EMOM Core Estabilidad)", sub: "<span class='sub-block-title'>Min 1</span> <b>Single Leg V-Ups:</b> Alternando piernas de forma dinámica. <br><br><span class='sub-block-title'>Min 2</span> <b>Hollow Rocks:</b> Balanceos rígidos gimnásticos en posición de bananita con zona lumbar pegada al piso. <a href='https://www.youtube.com/shorts/IzJhfrGQsjY' target='_blank' style='color:var(--fire-glow); text-decoration:underline; font-size:11px;'>Ver Video Hollow</a><br><br><span class='sub-block-title'>Min 3</span> <b>Plancha Isométrica sobre Antebrazos con Sierra (Body Saw):</b> Desplazamiento anteroposterior corto sobre los codos. <a href='https://www.youtube.com/watch?v=R9HJnAdJAUs' target='_blank' style='color:var(--fire-glow); text-decoration:underline; font-size:11px;'>Ver Video Body Saw</a>", reps: "EMOM 9 Minutos", detail: "<b>Estructura: 40'' ON / 20'' OFF</b>" }
+      { name: "BLOQUE DE PANTORRILLAS ACUMULATIVO (EMOM 12')", video: "https://www.youtube.com/embed/8BkvUI5i3EY", sub: "<span class='sub-block-title'>M1</span> <b>Elevación de Talones Sentada (Sóleos):</b> 20 reps. Contracción de 2 segundos arriba.<br><br><span class='sub-block-title'>M2</span> <b>Heavy Kettlebell Farmer's Walk en Puntas:</b> 45s de Tip-Toe carry con KBs muy pesadas. <a onclick=\"window.playModalVideo('https://www.youtube.com/embed/73yout0HFn4')\" style='color:var(--fire-glow); text-decoration:underline; cursor:pointer;'>Ver Video Tip-Toe</a><br><br><span class='sub-block-title'>M3</span> <b>Elevación de talones de pie en Step:</b> Máximas reps continuas durante 45 segundos. <a onclick=\"window.playModalVideo('https://www.youtube.com/embed/-IURfiupLoE')\" style='color:var(--fire-glow); text-decoration:underline; cursor:pointer;'>Ver Video Step</a>", reps: "EMOM 12 Minutos (4 vueltas)", detail: "<b>Aislamiento Tríceps Sural</b>" },
+      { name: "Cross-Body Fire (EMOM Core Estabilidad)", video: "https://www.youtube.com/embed/0EIDVDbzVNo", sub: "<span class='sub-block-title'>Min 1</span> <b>Single Leg V-Ups:</b> Alternando piernas de forma dinámica.<br><br><span class='sub-block-title'>Min 2</span> <b>Hollow Rocks:</b> Balanceos rígidos gimnásticos en posición de bananita. <a onclick=\"window.playModalVideo('https://www.youtube.com/embed/hGwi6-YyjPo')\" style='color:var(--fire-glow); text-decoration:underline; cursor:pointer;'>Ver Video Hollow Rocks</a><br><br><span class='sub-block-title'>Min 3</span> <b>Plancha Isométrica sobre Antebrazos con Sierra (Body Saw):</b> Desplazamiento anteroposterior corto. <a onclick=\"window.playModalVideo('https://www.youtube.com/embed/SNw27niRKTU')\" style='color:var(--fire-glow); text-decoration:underline; cursor:pointer;'>Ver Video Body Saw</a>", reps: "EMOM 9 Minutos", detail: "<b>Estructura: 40'' ON / 20'' OFF</b>" }
     ],
-    technicalAnalysis: {
-      objectives: "Generar un estímulo volumétrico metabólico en el cuádriceps utilizando vectores mecánicos guiados libres de fatiga axial.",
-      tips: "En la prensa, jamás permitas que tu coxis se despegue del asiento en la fase profunda para evitar una flexión lumbar forzada bajo carga.",
-      strategies: "El combo de isquemia excéntrica en prensa fatiga las fibras musculares más allá de sus capacidades concéntricas normales al aislar la bajada lenta."
+    insights: {
+      warmup: { obj: "Activar el aductor medio e inducir elasticidad dinámica en flexores.", tip: "Mantén el torso erguido sin inclinarte adelante en la zancada lateral.", str: "Liberación de restricciones coxofemorales." },
+      main: { obj: "Generar un estímulo volumétrico masivo en el cuádriceps aislando la columna.", tip: "En la prensa jamás permitas que tu coxis se despegue del asiento en la fase profunda.", str: "El combo de isquemia uní-lateral fatiga fibras más allá de sus capacidades normales." },
+      metcon: { obj: "Oclusión del tríceps sural y estimulación anti-extensión de la línea media.", tip: "En el Body Saw mantén los antebrazos anclados firmes empujando horizontal.", str: "Bloque cíclico terminal de agotamiento metabólico." }
     }
   }
 ];
@@ -642,10 +658,25 @@ function openModal(w) {
       <div class="exercise-row">
         <div class="exercise-num">${idx + 1}</div>
         <div class="exercise-title-container">
-          <div class="exercise-name">${ex.name}<sub>${ex.sub}</sub></div>
+          <div class="exercise-name">
+            ${ex.name}
+            <sub>${ex.sub}</sub>
+          </div>
           ${videoButtonHtml}
         </div>
         <div class="exercise-detail"><b>${ex.reps}</b>${ex.detail ? ex.detail : ''}</div>
+      </div>
+    `;
+  };
+
+  const renderInsightBox = (blockType, blockData) => {
+    if (!w.insights || !w.insights[blockType]) return '';
+    const ins = w.insights[blockType];
+    return `
+      <div class="insight-box ${blockType}">
+        <div class="insight-row"><span class="insight-label">🎯 Objetivo del Bloque:</span> <div>${ins.obj}</div></div>
+        <div class="insight-row"><span class="insight-label">💡 Tips Técnicos:</span> <div>${ins.tip}</div></div>
+        <div class="insight-row"><span class="insight-label">⚡ Estrategia del Bloque:</span> <div>${ins.str}</div></div>
       </div>
     `;
   };
@@ -659,6 +690,7 @@ function openModal(w) {
         <div class="block-content">
     `;
     w.warmup.forEach((ex, idx) => { html += getExerciseRow(ex, idx); });
+    html += renderInsightBox('warmup');
     html += `</div></div>`;
   }
   
@@ -671,6 +703,7 @@ function openModal(w) {
         <div class="block-content">
     `;
     w.main.forEach((ex, idx) => { html += getExerciseRow(ex, idx); });
+    html += renderInsightBox('main');
     html += `</div></div>`;
   }
   
@@ -683,22 +716,8 @@ function openModal(w) {
         <div class="block-content">
     `;
     w.metcon.forEach((ex, idx) => { html += getExerciseRow(ex, idx); });
+    html += renderInsightBox('metcon');
     html += `</div></div>`;
-  }
-
-  if (w.technicalAnalysis) {
-    html += `
-      <div class="block" style="border: 1px dashed rgba(124,77,255,0.3); background: rgba(124,77,255,0.01);">
-        <div class="block-header">
-          <div class="block-title" style="color: #B39DDB;">📋 Análisis Detallado de la Sesión</div>
-        </div>
-        <div class="block-content" style="font-size: 13.5px; color: var(--text-secondary); padding: 1rem 0;">
-          <p style="margin-bottom: 0.75rem;"><strong>🎯 Objetivos del Bloque:</strong> ${w.technicalAnalysis.objectives}</p>
-          <p style="margin-bottom: 0.75rem;"><strong>💡 Tips Técnicos:</strong> ${w.technicalAnalysis.tips}</p>
-          <p><strong>⚡ Estrategia del Coach:</strong> ${w.technicalAnalysis.strategies}</p>
-        </div>
-      </div>
-    `;
   }
   
   bodyContent.innerHTML = html;
